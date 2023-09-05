@@ -18,6 +18,9 @@ const registrarUsuario = require('./controllers/registrarUsuario')
 const loginUsuario = require('./controllers/loginUsuario')
 
 //routes
+app.get('/', (req, res) => {
+    res.send("Olá")
+})
 app.post('/registro', registrarUsuario)
 app.post('/login', loginUsuario)
 
