@@ -1,4 +1,4 @@
-const Usuario = require('../models/Usuario')
+const Usuario = require('./Usuario.model')
 
 async function registrarUsuario(req, res){
     const {email, senha, confirmarSenha} = req.body

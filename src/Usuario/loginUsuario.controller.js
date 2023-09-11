@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
-const Usuario = require('../models/Usuario')
+const Usuario = require('../Usuario/Usuario.model')
 const mongoose = require('mongoose')
 
 async function loginUsuario(req, res){

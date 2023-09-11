@@ -13,16 +13,22 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-//controlers
-const registrarUsuario = require('./controllers/registrarUsuario')
-const loginUsuario = require('./controllers/loginUsuario')
+//rotas
+const ProdutoRoute = require('./Produto/Produto.route');
+const UsuarioRoute = require('./Usuario/Usuario.route');
+const FinanceiroRoute = require('./Financeiro/Financeiro.route');
+const PedidoRoute = require('./Pedido/Pedido.route');
 
-//routes
+//endpoints
 app.get('/', (req, res) => {
     res.send("Olá")
 })
-app.post('/registro', registrarUsuario)
-app.post('/login', loginUsuario)
+
+app.use('/produto', ProdutoRoute);
+app.use('/usuario', UsuarioRoute);
+app.use('/financeiro', FinanceiroRoute);
+app.use('/pedido', PedidoRoute);
+
 
 //conecting
 dbUser = process.env.DBUSER
