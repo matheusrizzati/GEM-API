@@ -8,7 +8,8 @@ const itensSchema = new mongoose.Schema({
 const Pedido = new mongoose.Schema({
     numeroPedido: Number,
     items: [itensSchema],
-    valor: Number
+    valor: Number,
+    userid: String,
 })
 
 module.exports = mongoose.model('Pedido', Pedido)

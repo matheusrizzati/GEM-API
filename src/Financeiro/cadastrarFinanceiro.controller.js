@@ -6,7 +6,7 @@ async function cadastrarFinanceiro(req, res){
     const dataAtual = new Date(new Date(Date.now() - 10800000))
     console.log(dataAtual, typeof dataAtual)
     const financeiro = new Financeiro({
-        valor, detalhes, data: dataAtual
+        valor, detalhes, data: dataAtual, userId: req.id
     })
     try{
         await financeiro.save()

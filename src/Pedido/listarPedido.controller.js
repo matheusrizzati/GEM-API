@@ -2,7 +2,7 @@ const Pedido = require('./Pedido.model')
 const mongoose = require('mongoose')
 
 async function listarPedido(req, res){
-    const pedido = await Pedido.find().populate('produtoId')
+    const pedido = await Pedido.find({userId: req.id}).populate('produtoId')
     try{
         res.json(pedido)
     } catch(err){

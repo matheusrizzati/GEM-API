@@ -7,7 +7,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 
 //port
-const PORT = 8800
+const PORT = process.env.PORT
 // app.use
 app.use(cors())
 app.use(bodyParser.json())
@@ -19,8 +19,11 @@ const UsuarioRoute = require('./Usuario/Usuario.route');
 const FinanceiroRoute = require('./Financeiro/Financeiro.route');
 const PedidoRoute = require('./Pedido/Pedido.route');
 
+//middleware
+const checkToken = require('./checkToken.middleware')
+
 //endpoints
-app.get('/', (req, res) => {
+app.get('/', (req, res) => {    
     res.send("Olá")
 })
 
@@ -29,6 +32,9 @@ app.use('/usuario', UsuarioRoute);
 app.use('/financeiro', FinanceiroRoute);
 app.use('/pedido', PedidoRoute);
 
+app.get('/session', checkToken, (req, res) => {
+    res.send("sucess")
+})
 
 //conecting
 dbUser = process.env.DBUSER

@@ -2,7 +2,8 @@ const Produto = require('../Produto/Produto.model')
 const mongoose = require('mongoose')
 
 async function listarProdutos(req, res){
-    const products = await Produto.find()
+    console.log(req.id)
+    const products = await Produto.find({userId: req.id})
     try{
         res.json(products)
     } catch(err){
