@@ -7,10 +7,10 @@ const editarProduto = require('./editarProduto.controller')
 const listarProdutos = require('./listarProdutos.controller')
 const listarUmProdutos = require('./listarUmProdutos.controller')
 
-router.post('/', checkToken, cadastrarProduto)
-router.get('/', checkToken, listarProdutos)
-router.get('/:id', checkToken, listarUmProdutos)
-router.put('/:id', checkToken, editarProduto)
-router.delete('/:id', checkToken, deletarProduto)
+router.post('/', cadastrarProduto)
+router.get('/', listarProdutos)
+router.get('/:id', listarUmProdutos)
+router.put('/:id', editarProduto)
+router.delete('/:id', deletarProduto)
 
 module.exports = router

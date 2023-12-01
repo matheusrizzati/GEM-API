@@ -9,10 +9,10 @@ const editarPedido = require('./editarPedido.controller')
 const listarPedido = require('./listarPedido.controller')
 const listarUmPedido = require('./listarUmPedido.controller')
 
-router.post('/', checkToken, cadastrarPedido)
-router.get('/', checkToken, listarPedido)
-router.get('/:id', checkToken, listarUmPedido)
-router.put('/:id', checkToken, editarPedido)
-router.delete('/:id', checkToken, deletarPedido)
+router.post('/', cadastrarPedido)
+router.get('/', listarPedido)
+router.get('/:id', listarUmPedido)
+router.put('/:id', editarPedido)
+router.delete('/:id', deletarPedido)
 
 module.exports = router

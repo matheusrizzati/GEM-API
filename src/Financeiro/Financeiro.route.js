@@ -9,10 +9,10 @@ const editarFinanceiro = require('./editarFinanceiro.controller')
 const listarFinanceiro = require('./listarFinanceiro.controller')
 const listarUmFinanceiro = require('./listarUmFinanceiro.controller')
 
-router.post('/', checkToken, cadastrarFinanceiro)
-router.get('/', checkToken, listarFinanceiro)
-router.get('/:id', checkToken, listarUmFinanceiro)
-router.put('/:id', checkToken, editarFinanceiro)
-router.delete('/:id', checkToken, deletarFinanceiro)
+router.post('/', cadastrarFinanceiro)
+router.get('/', listarFinanceiro)
+router.get('/:id', listarUmFinanceiro)
+router.put('/:id', editarFinanceiro)
+router.delete('/:id', deletarFinanceiro)
 
 module.exports = router
